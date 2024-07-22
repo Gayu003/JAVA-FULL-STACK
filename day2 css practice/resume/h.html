@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume with Profile Image</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .container img {
+            border-radius: 50%;
+            max-width: 150px;
+            height: auto;
+        }
+        .container .text {
+            margin-left: 20px;
+        }
+        .container .text h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .container .text p {
+            margin: 5px 0;
+            color: #555;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .container .text {
+                margin-left: 0;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="profile-image.jpg" alt="Profile Image">
+        <div class="text">
+            <h1>John Doe</h1>
+            <p>Experienced software developer with a strong background in full-stack development and a passion for creating efficient and scalable web applications. Proficient in JavaScript, Python, and Java, with extensive experience in frameworks such as React, Angular, and Django. Demonstrated ability to lead development teams, manage projects, and deliver solutions on time and within budget. Committed to continuous learning and staying updated with the latest industry trends and technologies.</p>
+        </div>
+    </div>
+</body>
+</html>
