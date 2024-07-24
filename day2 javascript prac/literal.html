@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function myfunction(){
+            let arr=["html","css","javascript"];
+            document.write("<br>Array elements: "+arr);
+            document.write("<br>Array size: "+arr.length);
+            document.write("<br>Array first: "+arr[0]);
+            document.write("<br>Array last: "+arr[arr.length-1]);
+            arr.push("bootsrap");
+            document.write("<br>Array after push: "+arr);
+            arr.pop();
+            document.write("<br>Array after pop: "+arr);
+            for(let i=0;i<arr.length;i++){
+                document.write("<br>"+arr[i]);
+            }
+        }
+    </script>
+</head>
+<body onload="myfunction()">
+    
+</body>
+</html>
