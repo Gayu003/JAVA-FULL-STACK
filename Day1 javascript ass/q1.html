@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function func() {
+            var x=parseInt(document.getElementById("n").value);
+            var pat="";
+            for(let i=1;i<=x;i++){
+                for(let j=1;j<=i;j++){
+                    pat +="*";
+                }
+                pat+="<br>";
+            }
+            document.getElementById("res").innerHTML = pat;
+        }
+    </script>
+</head>
+<body>
+    Enter number of rows:<input type="text" id="n"><br>
+    <br>
+    <button onclick="func()">Generate pattern</button>
+    <div id="res">
+    </div>
+</body>
+</html>

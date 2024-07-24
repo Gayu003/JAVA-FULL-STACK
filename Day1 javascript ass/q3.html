@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function func() {
+            var num=parseInt(document.getElementById("n").value);
+            var isprime=true;
+            var res="";
+            if(num==1){
+                res ="neither prime nor composite";
+            }
+            else if(num>1){
+                for(let i=2;i<num;i++)
+            {
+                if(num%i==0)
+                   isprime =false;
+                break;
+            }
+            if(isprime)
+            res ="prime number";
+            else
+            res ="not a prime number";  
+            }
+            else{
+                  res+="not a prime number";
+            }
+       
+        
+            document.getElementById("res").innerHTML =res;
+        }
+    </script>
+</head>
+<body>
+    Enter a number:<input type="text" id="n"><br>
+    <br>
+    <button onclick="func()">Check</button>
+    <div id="res"></div>
+</body>
+</html>

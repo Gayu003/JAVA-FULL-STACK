@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Length Checker</title>
+    <script>
+        function len() {
+            var str = document.getElementById("str").value;
+            var res1 = str.length;
+            var res2 =str.charAt(2);
+            var res3=str.slice(4);
+            var res4=str.substring(2,5);
+            var res5=str.substr(1,5);
+            var res6=str.toUpperCase();
+            var res7=str.toLowerCase();
+            var res7=str.concat(" ","world");
+            var res8=str.trim();
+            var res9=str.trimStart();
+            var res10=str.trimEnd();
+            var res11=str.repeat(5);
+            var res12=str.replace("world","selva")
+            var res13=str.replaceAll("world","selva")
+            var res14=str.split(",");
+            document.getElementById("res").innerHTML = "<br>Length:"+res1+"<br>Character at Index 2: "+res2
+            +"<br>Slice: "+res3+"<br>Substring: "+res4+"<br>Substr: "+res5+"<br>UpperCase: "+res6+"<br>LowerCase: "+res7
+            +"<br>Trim: "+res8+"<br>TrimStart: "+res9+"<br>TrimEnd: "+res10+"<br>Repeat: "+res11
+            +"<br>Replace: "+res12+"<br>Replace All: "+res13+"<br>Split: "+res14;
+        }
+    </script>
+</head>
+<body>
+    <label for="str">Enter the text:</label>
+    <input type="text" id="str">
+    <br><br>
+    <button onclick="len()">Check</button>
+
+    <div id="res"></div>
+</body>
+</html>

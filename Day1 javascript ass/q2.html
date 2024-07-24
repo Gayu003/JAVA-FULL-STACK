@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function func(){
+            var str=document.getElementById("string").value;
+            var res="";
+            var result="";
+            var n=str.length;
+            for(let i=0;i<str.length/2;i++){
+                if(str.charAt(i)==str.charAt(n-i-1))
+                  res+="1";
+                else
+                  res+="0";
+            }
+            if(res==1)
+              result+="Palindrome";
+            else
+              result+="Not palindrome";
+            document.getElementById("res").innerHTML = result;
+        }
+    </script>
+</head>
+<body>
+    Enter the string:<input type="text" id="string"><br><br>
+    <button onclick="func()">Check</button>
+    <div id="res"></div>
+</body>
+</html>
