@@ -6,71 +6,81 @@
     <title>Document</title>
     <style>
         .container{
-            border: 1px solid black;
+            width: 100%;
+            height: 100vh;
+            background: plum;
+            display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 180px;;
-            margin-left: 450px;
-            width: 22%;
-            height: 53vh;
-            background-color: plum;
-            border-radius: 5px;
         }
-        .button{
-            margin-top: 15px ;
-            margin-left: 7px ;
-            width: 55px;
-            height: 35px;
-            border: none;
-            background: aquamarine;
-
+        .calculator{
+            
+            padding: 20px;
+            border-radius: 10px;
+            background: rgb(79, 74, 73);
         }
-        .display{
-            margin-top: 15px;
-            margin-right: 3px;
-            margin-left: 7px;
-            width: 240px;
-            height: 20px;
+        .calculator form input{
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            background-color:aquamarine;
         }
-        .container{
-            background: crimson;
+        form .display{
+            display: flex;
+            justify-self:flex-end;
+            margin: 20px 0;
+            
         }
-.button{
-    justify-content: space-around;    
-}
-</style>
+        .display input{
+            text-align:right;
+            font-size: 40px;
+            flex:1;
+            
+        }
+        
+    </style>
 </head>
 <body>
     <div class="container">
-                    
-                    <input type="text" class="display" name="res"><br>
-                    <input type="button" class="button" value="C">
-                    <input type="button" class="button" value="%">
-                    <input type="button" class="button" value="<=">
-                    <input type="button" class="button" value="/">
-                    <br>
-                    <input type="button" class="button" value="7">
-                    <input type="button" class="button" value="8">
-                    <input type="button" class="button"value="9" >
-                    <input type="button" class="button" value="*">
-                    <br>
-                    <input type="button" class="button" value="4" >
-                    <input type="button" class="button" value="5" >
-                    <input type="button" class="button" value="6" >
-                    <input type="button" class="button" value="-" >
-                    <br>
-                    <input type="button" class="button" value="1">
-                    <input type="button" class="button" value="2" >
-                    <input type="button" class="button"value="3">
-                    <input type="button" class="button" value="+" >
-                    <br>
-                    <input type="button" class="button" value="00" >
-                    <input type="button" class="button"value="0" >
-                    <input type="button" class="button" value="." >
-                    <input type="button" class="button" value="=">
-                    <br>
+        <div class="calculator">
+            <form>
+                <div class="display">
+                    <input type="text" name="display">
+                </div>
+                <div class="button">
+                    <div>
+                    <input type="button" value="C">
+                    <input type="button" value="AC" >
+                    <input type="button" value="%">
+                    <input type="button" value="=>">
+                </div>
+                <div>
+                    <input type="button" value="7" >
+                    <input type="button" value="8" >
+                    <input type="button" value="9" >
+                    <input type="button" value="*" >
+                </div>
+                <div>
+                    <input type="button" value="4" >
+                    <input type="button" value="5" >
+                    <input type="button" value="6">
+                    <input type="button" value="-">
+                </div>
+                <div>
+                    <input type="button" value="1" >
+                    <input type="button" value="2" >
+                    <input type="button" value="3" >
+                    <input type="button" value="+" >
+                </div>
+                <div>
+                    <input type="button" value="00" >
+                    <input type="button" value="0" >
+                    <input type="button" value="." >
+                    <input type="button" value="=" >
+                </div>
+                </div>
+            </form>
         </div>
-    
-   
+    </div>
 </body>
 </html>
