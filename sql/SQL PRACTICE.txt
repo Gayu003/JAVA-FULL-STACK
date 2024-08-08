@@ -1,0 +1,314 @@
+SQL> create table employee(id number,name varchar,salary number(9,2));
+create table employee(id number,name varchar,salary number(9,2))
+                                            *
+ERROR at line 1:
+ORA-00906: missing left parenthesis
+
+
+SQL> create table employee(id number,name varchar(25),salary number(9,2));
+
+Table created.
+
+SQL> insert into employee values(101,dhana,50000.00);
+insert into employee values(101,dhana,50000.00)
+                                *
+ERROR at line 1:
+ORA-00984: column not allowed here
+
+
+SQL> insert into employee values(101,'dhana',50000.00);
+
+1 row created.
+
+SQL> insert into employee values(102,'kishore',45000.00);
+
+1 row created.
+
+SQL> insert into employee values(103,'rabin',85000.00);
+
+1 row created.
+
+SQL> insert into employee values(103,'kathir',65000.00);
+
+1 row created.
+
+SQL> insert into employee values(105,'gowtham',65000.00);
+
+1 row created.
+
+SQL> select * from employee;
+
+        ID NAME                          SALARY
+---------- ------------------------- ----------
+       101 dhana                          50000
+       102 kishore                        45000
+       103 rabin                          85000
+       103 kathir                         65000
+       105 gowtham                        65000
+
+SQL> alter table employee add dept number;
+
+Table altered.
+
+SQL> select * from employee;
+
+        ID NAME                          SALARY       DEPT
+---------- ------------------------- ---------- ----------
+       101 dhana                          50000
+       102 kishore                        45000
+       103 rabin                          85000
+       103 kathir                         65000
+       105 gowtham                        65000
+
+SQL> update employee set dept=10 where id in(101,103);
+
+3 rows updated.
+
+SQL> select * from employee;
+
+        ID NAME                          SALARY       DEPT
+---------- ------------------------- ---------- ----------
+       101 dhana                          50000         10
+       102 kishore                        45000
+       103 rabin                          85000         10
+       103 kathir                         65000         10
+       105 gowtham                        65000
+
+SQL> update employee set dept=20 where id=102;
+
+1 row updated.
+
+SQL> select * from employee;
+
+        ID NAME                          SALARY       DEPT
+---------- ------------------------- ---------- ----------
+       101 dhana                          50000         10
+       102 kishore                        45000         20
+       103 rabin                          85000         10
+       103 kathir                         65000         10
+       105 gowtham                        65000
+
+SQL> update employee set dept=30 where id=105;
+
+1 row updated.
+
+SQL> select * from employee;
+
+        ID NAME                          SALARY       DEPT
+---------- ------------------------- ---------- ----------
+       101 dhana                          50000         10
+       102 kishore                        45000         20
+       103 rabin                          85000         10
+       103 kathir                         65000         10
+       105 gowtham                        65000         30
+
+SQL> select dept,count(*) from employee group by dept;
+
+      DEPT   COUNT(*)
+---------- ----------
+        30          1
+        20          1
+        10          3
+
+SQL> select dept,count(*),sum(salary),avg(salary),min(salary),max(salary) from employee group by dept;
+
+      DEPT   COUNT(*) SUM(SALARY) AVG(SALARY) MIN(SALARY) MAX(SALARY)
+---------- ---------- ----------- ----------- ----------- -----------
+        30          1       65000       65000       65000       65000
+        20          1       45000       45000       45000       45000
+        10          3      200000  66666.6667       50000       85000
+
+SQL> select dept,count(*),sum(salary),avg(salary),min(salary),max(salary) from employee group by dept order by dept;
+
+      DEPT   COUNT(*) SUM(SALARY) AVG(SALARY) MIN(SALARY) MAX(SALARY)
+---------- ---------- ----------- ----------- ----------- -----------
+        10          3      200000  66666.6667       50000       85000
+        20          1       45000       45000       45000       45000
+        30          1       65000       65000       65000       65000
+
+SQL> select dept,count(*),sum(salary),avg(salary),min(salary),max(salary) from employee group by dept having min(salary)>50000 order by dept;
+
+      DEPT   COUNT(*) SUM(SALARY) AVG(SALARY) MIN(SALARY) MAX(SALARY)
+---------- ---------- ----------- ----------- ----------- -----------
+        30          1       65000       65000       65000       65000
+
+SQL> select dept,count(*),sum(salary),avg(salary),min(salary),max(salary) from employee group by dept having min(salary)>50000 order by dept;
+
+      DEPT   COUNT(*) SUM(SALARY) AVG(SALARY) MIN(SALARY) MAX(SALARY)
+---------- ---------- ----------- ----------- ----------- -----------
+        30          1       65000       65000       65000       65000
+
+SQL> create table student(reg_no number(5) primary key,stu_name varchar2(20) not null,stu_age number(3) check (stu_age>0),stu_email varchar2(20) unique,stu_location varcha2(20) default 'Salem';
+create table student(reg_no number(5) primary key,stu_name varchar2(20) not null,stu_age number(3) check (stu_age>0),stu_email varchar2(20) unique,stu_location varcha2(20) default 'Salem'
+                                                                                                                                                                       *
+ERROR at line 1:
+ORA-00907: missing right parenthesis
+
+
+SQL> create table student(reg_no number(5) primary key,stu_name varchar2(20) not null,stu_age number(3) check (stu_age>0),stu_email varchar2(20) unique,stu_location varcha2(20) default 'Salem');
+create table student(reg_no number(5) primary key,stu_name varchar2(20) not null,stu_age number(3) check (stu_age>0),stu_email varchar2(20) unique,stu_location varcha2(20) default 'Salem')
+                                                                                                                                                                       *
+ERROR at line 1:
+ORA-00907: missing right parenthesis
+
+
+SQL> create table student(reg_no number(5) primary key,stu_name varchar2(20) not null,stu_age number(3) check (stu_age>0),stu_email varchar2(20) unique,stu_location varcha2(20) default 'Salem');
+create table student(reg_no number(5) primary key,stu_name varchar2(20) not null,stu_age number(3) check (stu_age>0),stu_email varchar2(20) unique,stu_location varcha2(20) default 'Salem')
+                                                                                                                                                                       *
+ERROR at line 1:
+ORA-00907: missing right parenthesis
+
+
+SQL> create table student(reg_no number(5) primary key,stu_name varchar2(20) not null,stu_age number(3) check (stu_age>0),stu_email varchar2(20) unique,stu_location varchar2(20) default 'Salem');
+
+Table created.
+
+SQL> desc student;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REG_NO                                    NOT NULL NUMBER(5)
+ STU_NAME                                  NOT NULL VARCHAR2(20)
+ STU_AGE                                            NUMBER(3)
+ STU_EMAIL                                          VARCHAR2(20)
+ STU_LOCATION                                       VARCHAR2(20)
+
+SQL> insert into student(reg_no,stu_name,stu_age,stu_email) values(101,'selva',-12,'abc@gmail.com');
+insert into student(reg_no,stu_name,stu_age,stu_email) values(101,'selva',-12,'abc@gmail.com')
+*
+ERROR at line 1:
+ORA-02290: check constraint (SYSTEM.SYS_C006998) violated
+
+
+SQL> insert into student(reg_no,stu_name,stu_age,stu_email) values(101,'selva',12,'abc@gmail.com');
+
+1 row created.
+
+SQL> select * from student;
+
+    REG_NO STU_NAME                STU_AGE STU_EMAIL
+---------- -------------------- ---------- --------------------
+STU_LOCATION
+--------------------
+       101 selva                        12 abc@gmail.com
+Salem
+
+
+SQL> insert into student(reg_no,stu_name,stu_age,stu_email) values(102,'gayathri',12,'abc@gmail.com');
+insert into student(reg_no,stu_name,stu_age,stu_email) values(102,'gayathri',12,'abc@gmail.com')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (SYSTEM.SYS_C007000) violated
+
+
+SQL> insert into student values(103,'ramya',18,'abcd@gmail.com','Erode');
+
+1 row created.
+
+SQL> select * from student;
+
+    REG_NO STU_NAME                STU_AGE STU_EMAIL
+---------- -------------------- ---------- --------------------
+STU_LOCATION
+--------------------
+       101 selva                        12 abc@gmail.com
+Salem
+
+       103 ramya                        18 abcd@gmail.com
+Erode
+
+
+SQL> create table department(dno number(5)primary key,dname varchar2(20));
+
+Table created.
+
+SQL> create table emp(eid number(5)primary key,ename varchar2(20),esalary number(5),dno number(5),foreign key(dno) references department
+  2  (dno));
+create table emp(eid number(5)primary key,ename varchar2(20),esalary number(5),dno number(5),foreign key(dno) references department
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> GROUP BY clause is used with the SELECT statement.
+SP2-0734: unknown command beginning "GROUP BY c..." - rest of line ignored.
+SQL> In the query, the GROUP BY clause is placed after the WHERE clause.
+SQL> In the query, the GROUP BY clause is placed before the ORDER BY clause if used.
+SQL> In the query, the Group BY clause is placed before the Having clause.
+SQL> Place condition in the having clause.
+SP2-0734: unknown command beginning "Place cond..." - rest of line ignored.
+SQL> create table emp1(eid number(5)primary key,ename varchar2(20),esalary number(5),dno number(5),foreign key(dno) references department(dno));
+
+Table created.
+
+SQL> insert into department values(10,'CSE');
+
+1 row created.
+
+SQL> insert into emp1 values(101,'Harish',60000,10);
+
+1 row created.
+
+SQL> insert into emp1 values(102,'gayathri',50000,10);
+
+1 row created.
+
+SQL> insert into department values(20,'CSE');
+
+1 row created.
+
+SQL> insert into emp1 values(103,'gayu',50000,20);
+
+1 row created.
+
+SQL> select * from department;
+
+       DNO DNAME
+---------- --------------------
+        10 CSE
+        20 CSE
+
+SQL> select * from emp1;
+
+       EID ENAME                   ESALARY        DNO
+---------- -------------------- ---------- ----------
+       101 Harish                    60000         10
+       102 gayathri                  50000         10
+       103 gayu                      50000         20
+
+SQL> create view view1 as select * from emp1 where dno=10;
+
+View created.
+
+SQL> select * from view1;
+
+       EID ENAME                   ESALARY        DNO
+---------- -------------------- ---------- ----------
+       101 Harish                    60000         10
+       102 gayathri                  50000         10
+
+SQL> update view1 set esalary=70000 where eid=102;
+
+1 row updated.
+
+SQL> select * from view1;
+
+       EID ENAME                   ESALARY        DNO
+---------- -------------------- ---------- ----------
+       101 Harish                    60000         10
+       102 gayathri                  70000         10
+
+SQL> select * from emp1;
+
+       EID ENAME                   ESALARY        DNO
+---------- -------------------- ---------- ----------
+       101 Harish                    60000         10
+       102 gayathri                  70000         10
+       103 gayu                      50000         20
+
+SQL> select eid as "Employee Id", ename as "Employee Name" from emp1;
+
+Employee Id Employee Name
+----------- --------------------
+        101 Harish
+        102 gayathri
+        103 gayu
