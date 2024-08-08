@@ -1,0 +1,131 @@
+
+SQL> create table Client_Master(Client_No varchar(10),Name varchar(20),City varchar(20),Pincode number(10),Bal_due number(10));
+
+Table created.
+
+SQL> insert into Client_Master values('C00001','SMITHA JAIN','Mumbai',400054,15000);
+
+1 row created.
+
+SQL> insert into Client_Master values('C00002','VANDANA RAO','Chennai',780001,0);
+
+1 row created.
+
+SQL> insert into Client_Master values('C00003','PREM PUJARI','Mumbai',400057,5000);
+
+1 row created.
+
+SQL> insert into Client_Master values('C00004','BASU NATH','Mumbai',400056,0);
+
+1 row created.
+
+SQL> insert into Client_Master values('C00005','RAVI SHANKAR','Delhi',100001,2000);
+
+1 row created.
+
+SQL> insert into Client_Master values('C00006','ROOPA','Mumbai',400050,0);
+
+1 row created.
+
+SQL> select * from Client_Master;
+
+CLIENT_NO  NAME                 CITY                    PINCODE    BAL_DUE
+---------- -------------------- -------------------- ---------- ----------
+C00001     SMITHA JAIN          Mumbai                   400054      15000
+C00002     VANDANA RAO          Chennai                  780001          0
+C00003     PREM PUJARI          Mumbai                   400057       5000
+C00004     BASU NATH            Mumbai                   400056          0
+C00005     RAVI SHANKAR         Delhi                    100001       2000
+C00006     ROOPA                Mumbai                   400050          0
+
+6 rows selected.
+
+
+SQL> create table Sale_Order(Order_No varchar(10),Order_Date varchar(10),Client_No varchar(20),Salesman_No varchar(20),Dely_Date varchar(10),Order_Status varchar(10));
+
+Table created.
+
+SQL> insert into Sale_Order values('O19001','12-01-13','C00001','S00001','20-01-13','In process');
+
+1 row created.
+
+SQL> insert into Sale_Order values('O46865','18-02-13','C00003','S00003','20-02-13','Fulfilled');
+
+1 row created.
+
+SQL> insert into Sale_Order values('O19002','25-01-13','C00002','S00002','27-01-13','Cancelled');
+
+1 row created.
+
+SQL> insert into Sale_Order values('O19003','03-04-13','C00001','S00001','07-04-13','Fulfilled');
+
+1 row created.
+
+SQL> insert into Sale_Order values('O46866','20-05-13','C00004','S00002','07-04-13','Cancelled');
+
+1 row created.
+
+SQL> insert into Sale_Order values('O19008','24-05-13','C00005','S00004','26-05-13','In process');
+
+1 row created.
+
+1.List all details from the client_master table for clients whose Bal_due = 0.
+
+
+SQL> select *from Client_Master where Bal_due=0;
+
+CLIENT_NO  NAME                 CITY                    PINCODE    BAL_DUE
+---------- -------------------- -------------------- ---------- ----------
+C00002     VANDANA RAO          Chennai                  780001          0
+C00004     BASU NATH            Mumbai                   400056          0
+C00006     ROOPA                Mumbai                   400050          0
+
+
+2.Update table client_master, Change city of Client_no C00004 to Jaipur.
+
+
+SQL> update Client_Master set City='Jaipur' where Client_no='C00004';
+
+1 row updated.
+
+SQL> select *from Client_Master;
+
+CLIENT_NO  NAME                 CITY                    PINCODE    BAL_DUE
+---------- -------------------- -------------------- ---------- ----------
+C00001     SMITHA JAIN          Mumbai                   400054      15000
+C00002     VANDANA RAO          Chennai                  780001          0
+C00003     PREM PUJARI          Mumbai                   400057       5000
+C00004     BASU NATH            Jaipur                   400056          0
+C00005     RAVI SHANKAR         Delhi                    100001       2000
+C00006     ROOPA                Mumbai                   400050          0
+
+
+3)Retrieve records of clients residing in Mumbai.
+
+
+
+SQL> select * from Client_Master where City='Mumbai';
+
+CLIENT_NO  NAME                 CITY                    PINCODE    BAL_DUE
+---------- -------------------- -------------------- ---------- ----------
+C00001     SMITHA JAIN          Mumbai                   400054      15000
+C00003     PREM PUJARI          Mumbai                   400057       5000
+C00006     ROOPA                Mumbai                   400050          0
+
+
+5.Construct English like sentence from the table client_master ({Customer name} live in the city of {city}).
+
+
+
+SQL> select concat(concat(Name,'lives in the'),City) As Result from Client_Master;
+
+RESULT
+----------------------------------------------------
+SMITHA JAINlives in theMumbai
+VANDANA RAOlives in theChennai
+PREM PUJARIlives in theMumbai
+BASU NATHlives in theJaipur
+RAVI SHANKARlives in theDelhi
+ROOPAlives in theMumbai
+
+6 rows selected.
