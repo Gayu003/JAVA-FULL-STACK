@@ -129,3 +129,23 @@ RAVI SHANKARlives in theDelhi
 ROOPAlives in theMumbai
 
 6 rows selected.
+
+4)Find the name and address of customer who has placed Order_no 'O19003' and 'O19002' respectively.
+
+SQL> select Client_Master.name,Client_Master.city from Client_Master join Sale_Order on  Client_Master.Client_No=Sale_Order.Client_No where Sale_Order.Order_no in('O19003','O19002');
+
+NAME                 CITY
+-------------------- --------------------
+SMITHA JAIN          Mumbai
+VANDANA RAO          Chennai
+
+
+6)
+List the client_no, name, city and pincode of clients whose Order_status is "In process".
+
+SQL> select Client_Master.Client_No,Client_Master.name,Client_Master.city,Client_Master.pincode from Client_Master join Sale_Order on Client_Master.Client_No=Sale_Order.Client_No where Sale_Order.order_status='In process';
+
+CLIENT_NO  NAME                 CITY                    PINCODE
+---------- -------------------- -------------------- ----------
+C00001     SMITHA JAIN          Mumbai                   400054
+C00005     RAVI SHANKAR         Delhi                    100001
